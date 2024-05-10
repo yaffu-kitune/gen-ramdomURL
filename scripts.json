@@ -1,0 +1,11 @@
+{
+  "$schema": "https://deno.land/x/denon@2.5.0/schema.json",
+  "watch": true,
+  "scripts": {
+    "start": {
+      "cmd": "deno run --allow-read=. --allow-write=. --allow-net main.ts",
+      "desc": "run my main.ts file"
+    }
+  },
+  "watcher": { "exts": ["js", "jsx", "ts", "tsx", "json"] }
+}
