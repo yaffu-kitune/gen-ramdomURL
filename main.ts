@@ -5,15 +5,14 @@ const app = new Hono();
 
 const urlData: any = [];
 
-//randomUrlにクライアントは1つしかアクセスできないようにしてその一台とコネクションが確立されたらそのURLを削除する
-
 app.use('/id/:id', async (c: any, next: any) => {
   const id = c.req.param("id");
+  console.log(urlData)
   if (urlData.includes(id)) {
     urlData.splice(urlData.indexOf(id), 1);
     return next();
   } else {
-    return c.status(403).text("403 Forbidden");
+    return new Response('Not Found', { status: 404 })
   }
 });
 
